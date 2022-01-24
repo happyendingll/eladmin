@@ -31,7 +31,7 @@ import java.io.Serializable;
 * @website https://el-admin.vip
 * @description /
 * @author solomon
-* @date 2022-01-24
+* @date 2022-01-25
 **/
 @Entity
 @Data
@@ -39,9 +39,9 @@ import java.io.Serializable;
 public class BlogNav implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     @ApiModelProperty(value = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "url",nullable = false)
@@ -70,6 +70,10 @@ public class BlogNav implements Serializable {
     @UpdateTimestamp
     @ApiModelProperty(value = "更新时间")
     private Timestamp updateTime;
+
+    @Column(name = "kind")
+    @ApiModelProperty(value = "分类")
+    private String kind;
 
     public void copy(BlogNav source){
         BeanUtil.copyProperties(source,this, CopyOptions.create().setIgnoreNullValue(true));

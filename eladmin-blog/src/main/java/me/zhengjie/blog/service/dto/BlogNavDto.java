@@ -23,7 +23,7 @@ import java.io.Serializable;
 * @website https://el-admin.vip
 * @description /
 * @author solomon
-* @date 2022-01-24
+* @date 2022-01-25
 **/
 @Data
 public class BlogNavDto implements Serializable {
@@ -48,4 +48,7 @@ public class BlogNavDto implements Serializable {
 
     /** 更新时间 */
     private Timestamp updateTime;
+
+    /** 分类 */
+    private String kind;
 }

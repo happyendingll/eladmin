@@ -28,7 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 * @website https://el-admin.vip
 * @description 服务接口
 * @author solomon
-* @date 2022-01-24
+* @date 2022-01-25
 **/
 public interface BlogNavService {
 

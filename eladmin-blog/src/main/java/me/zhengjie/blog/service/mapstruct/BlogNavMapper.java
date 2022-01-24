@@ -24,7 +24,7 @@ import org.mapstruct.ReportingPolicy;
 /**
 * @website https://el-admin.vip
 * @author solomon
-* @date 2022-01-24
+* @date 2022-01-25
 **/
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface BlogNavMapper extends BaseMapper<BlogNavDto, BlogNav> {

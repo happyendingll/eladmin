@@ -22,7 +22,7 @@ import me.zhengjie.annotation.Query;
 /**
 * @website https://el-admin.vip
 * @author solomon
-* @date 2022-01-24
+* @date 2022-01-25
 **/
 @Data
 public class BlogNavQueryCriteria{

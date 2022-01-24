@@ -22,7 +22,7 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 /**
 * @website https://el-admin.vip
 * @author solomon
-* @date 2022-01-24
+* @date 2022-01-25
 **/
 public interface BlogNavRepository extends JpaRepository<BlogNav, Integer>, JpaSpecificationExecutor<BlogNav> {
 }

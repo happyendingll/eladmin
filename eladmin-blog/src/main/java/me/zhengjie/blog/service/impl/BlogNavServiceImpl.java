@@ -45,7 +45,7 @@ import java.util.LinkedHashMap;
 * @website https://el-admin.vip
 * @description 服务实现
 * @author solomon
-* @date 2022-01-24
+* @date 2022-01-25
 **/
 @Service
 @RequiredArgsConstructor
@@ -88,6 +88,7 @@ public class BlogNavServiceImpl implements BlogNavService {
         resources.setTitle(doc.title());
         resources.setDescription(Desc);
         resources.setLogo(resources.getUrl()+"favicon.ico");
+
         return blogNavMapper.toDto(blogNavRepository.save(resources));
     }
 
@@ -118,6 +119,7 @@ public class BlogNavServiceImpl implements BlogNavService {
             map.put("logo", blogNav.getLogo());
             map.put("创建时间", blogNav.getCreateTime());
             map.put("更新时间", blogNav.getUpdateTime());
+            map.put("分类", blogNav.getKind());
             list.add(map);
         }
         FileUtil.downloadExcel(list, response);
