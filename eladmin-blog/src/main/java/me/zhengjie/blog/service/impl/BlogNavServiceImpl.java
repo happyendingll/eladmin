@@ -88,8 +88,10 @@ public class BlogNavServiceImpl implements BlogNavService {
         resources.setTitle(doc.title());
         resources.setDescription(Desc);
         resources.setLogo(resources.getUrl()+"favicon.ico");
-
-        return blogNavMapper.toDto(blogNavRepository.save(resources));
+        BlogNavDto blogNavDto = blogNavMapper.toDto(blogNavRepository.save(resources));
+        //导入到typecho
+        blogNavRepository.importNav();
+        return blogNavDto;
     }
 
     @Override
@@ -99,6 +101,8 @@ public class BlogNavServiceImpl implements BlogNavService {
         ValidationUtil.isNull( blogNav.getId(),"BlogNav","id",resources.getId());
         blogNav.copy(resources);
         blogNavRepository.save(blogNav);
+        //导入到typecho
+        blogNavRepository.importNav();
     }
 
     @Override
@@ -123,5 +127,10 @@ public class BlogNavServiceImpl implements BlogNavService {
             list.add(map);
         }
         FileUtil.downloadExcel(list, response);
+    }
+
+    @Override
+    public void importNav() {
+        blogNavRepository.importNav();
     }
 }

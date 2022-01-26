@@ -84,4 +84,12 @@ public class BlogNavController {
         blogNavService.deleteAll(ids);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @Log("导入数据到typecho")
+    @ApiOperation("导入数据到typecho")
+    @GetMapping(value = "/import")
+    public ResponseEntity<Object> importNav(){
+        blogNavService.importNav();
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

@@ -18,6 +18,9 @@ package me.zhengjie.blog.repository;
 import me.zhengjie.blog.domain.BlogNav;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
 * @website https://el-admin.vip
@@ -25,4 +28,8 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 * @date 2022-01-25
 **/
 public interface BlogNavRepository extends JpaRepository<BlogNav, Integer>, JpaSpecificationExecutor<BlogNav> {
+    @Modifying
+    @Transactional
+    @Query(value = "CALL importNav()",nativeQuery = true)
+    void importNav();
 }
