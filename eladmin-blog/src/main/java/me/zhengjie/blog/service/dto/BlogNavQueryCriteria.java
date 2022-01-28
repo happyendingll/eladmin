@@ -34,4 +34,8 @@ public class BlogNavQueryCriteria{
     /** 模糊 */
     @Query(type = Query.Type.INNER_LIKE)
     private String title;
+
+    /** 精确 */
+    @Query
+    private String kind;
 }

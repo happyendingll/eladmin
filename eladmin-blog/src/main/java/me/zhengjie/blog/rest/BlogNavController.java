@@ -37,7 +37,7 @@ import javax.servlet.http.HttpServletResponse;
 **/
 @RestController
 @RequiredArgsConstructor
-@Api(tags = "博客导航栏管理")
+@Api(tags = "博客： 导航栏管理")
 @RequestMapping("/api/blogNav")
 public class BlogNavController {
 

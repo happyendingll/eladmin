@@ -110,6 +110,7 @@ public class BlogNavServiceImpl implements BlogNavService {
         for (Integer id : ids) {
             blogNavRepository.deleteById(id);
         }
+        blogNavRepository.importNav();
     }
 
     @Override
