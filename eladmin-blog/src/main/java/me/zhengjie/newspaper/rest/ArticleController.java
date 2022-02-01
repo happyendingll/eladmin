@@ -38,7 +38,7 @@ import javax.servlet.http.HttpServletResponse;
 **/
 @RestController
 @RequiredArgsConstructor
-@Api(tags = "newspaper管理")
+@Api(tags = "博客： 日报管理")
 @RequestMapping("/api/article")
 public class ArticleController {
 
