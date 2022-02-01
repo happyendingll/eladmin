@@ -47,6 +47,7 @@ public class ArticleController {
     @Log("导出数据")
     @ApiOperation("导出数据")
     @GetMapping(value = "/download")
+    @PreAuthorize("@el.check('article:list')")
     @AnonymousAccess
     public void exportArticle(HttpServletResponse response, ArticleQueryCriteria criteria) throws IOException {
         articleService.download(articleService.queryAll(criteria), response);
@@ -55,6 +56,7 @@ public class ArticleController {
     @GetMapping
     @Log("查询newspaper")
     @ApiOperation("查询newspaper")
+    @PreAuthorize("@el.check('article:list')")
     @AnonymousAccess
     public ResponseEntity<Object> queryArticle(ArticleQueryCriteria criteria, Pageable pageable){
         return new ResponseEntity<>(articleService.queryAll(criteria,pageable),HttpStatus.OK);
@@ -63,6 +65,7 @@ public class ArticleController {
     @PostMapping
     @Log("新增newspaper")
     @ApiOperation("新增newspaper")
+    @PreAuthorize("@el.check('article:add')")
     @AnonymousAccess
     public ResponseEntity<Object> createArticle(@Validated @RequestBody Article resources){
         return new ResponseEntity<>(articleService.create(resources),HttpStatus.CREATED);
@@ -71,6 +74,7 @@ public class ArticleController {
     @PutMapping
     @Log("修改newspaper")
     @ApiOperation("修改newspaper")
+    @PreAuthorize("@el.check('article:edit')")
     @AnonymousAccess
     public ResponseEntity<Object> updateArticle(@Validated @RequestBody Article resources){
         articleService.update(resources);
@@ -80,6 +84,7 @@ public class ArticleController {
     @DeleteMapping
     @Log("删除newspaper")
     @ApiOperation("删除newspaper")
+    @PreAuthorize("@el.check('article:del')")
     @AnonymousAccess
     public ResponseEntity<Object> deleteArticle(@RequestBody Integer[] ids) {
         articleService.deleteAll(ids);
