@@ -19,6 +19,12 @@
     </properties>
 
     <dependencies>
+        <!-- 题库模块 -->
+        <dependency>
+            <groupId>me.zhengjie</groupId>
+            <artifactId>eladmin-exam</artifactId>
+            <version>2.6</version>
+        </dependency>
         <!-- 博客模块 -->
         <dependency>
             <groupId>me.zhengjie</groupId>
