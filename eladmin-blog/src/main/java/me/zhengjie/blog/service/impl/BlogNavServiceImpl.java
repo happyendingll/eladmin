@@ -15,31 +15,32 @@
 */
 package me.zhengjie.blog.service.impl;
 
-import me.zhengjie.blog.domain.BlogNav;
-import me.zhengjie.utils.ValidationUtil;
-import me.zhengjie.utils.FileUtil;
 import lombok.RequiredArgsConstructor;
+import me.zhengjie.blog.domain.BlogNav;
 import me.zhengjie.blog.repository.BlogNavRepository;
 import me.zhengjie.blog.service.BlogNavService;
 import me.zhengjie.blog.service.dto.BlogNavDto;
 import me.zhengjie.blog.service.dto.BlogNavQueryCriteria;
 import me.zhengjie.blog.service.mapstruct.BlogNavMapper;
+import me.zhengjie.utils.FileUtil;
+import me.zhengjie.utils.PageUtil;
+import me.zhengjie.utils.QueryHelp;
+import me.zhengjie.utils.ValidationUtil;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import me.zhengjie.utils.PageUtil;
-import me.zhengjie.utils.QueryHelp;
-import java.util.List;
-import java.util.Map;
-import java.io.IOException;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
 * @website https://el-admin.vip
@@ -87,7 +88,7 @@ public class BlogNavServiceImpl implements BlogNavService {
         }
         resources.setTitle(doc.title());
         resources.setDescription(Desc);
-        resources.setLogo(resources.getUrl()+"favicon.ico");
+        resources.setLogo("https://api.iowen.cn/favicon/"+resources.getUrl().replaceFirst("http.*://", "")+".png");
         BlogNavDto blogNavDto = blogNavMapper.toDto(blogNavRepository.save(resources));
         //导入到typecho
         blogNavRepository.importNav();
